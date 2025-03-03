@@ -256,111 +256,174 @@ else:
     print("Grade A")
 
 
-
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 26 [1 mark]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 26
+for number in range(10, -1, -1):
+    print("Lift off!") if number == 0 else print(number)
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 27 [1 mark]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 27
+total = 0
+for number in range(1, 25, 1):
+    total = total + number
+
+print(f"The total is {total}")
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 28 [2 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 28
+user_number = int(input("Insert a number: "))
+number_set = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for n in number_set:
+    total = user_number * n
+    print(f"{user_number} x {n} = {total}")
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 29 [1 mark]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 29
+string = "Hola is Hi in English"
+
+for char in string:
+    print(char)
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 30 [1 mark]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 30
+sensible_name = [2, 4, 6, 8, 10, 12, 14, 16]
+new_list = []
+
+for number in sensible_name:
+    new_number = number + 4
+    new_list.append(new_number)
+print(new_list)
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 31 [1 mark]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 31
+strings = ["Hola", "is", "Hi", "in Spanish"]
+new_string = " ".join(strings)
+
+print(new_string)
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 32 [2 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 32
+list = [1, 2, 3, 4, 5]
+new_list = []
+
+for number in list:
+    number = number ** 2
+    new_list.append(number)
+print(new_list)
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 33 [2 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 33
+list = [8, 2, 18, 19, 48, 3]
+list.sort(reverse=True)
+print(list[0])
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 34 [2 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 34
+dictionary = {
+    "Jordy" : "jordylopez@northumbria.com",
+    "Josh" : "joshbrown@northumbria.com",
+    "Jordan" : "michaeljordan@northumbria.com"
+}
+print(f"The email of Jordan is {dictionary["Jordan"]}")
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 35 [1 mark]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 35
+def welcome_user():
+    print("Welcome user")
+
+welcome_user()
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 36 [1 mark]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 36
+def adds_two_numbers(num1, num2):
+    print(num1 + num2)
+
+adds_two_numbers(1, 2)
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 37 [1 mark]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 37
+def capitalize(str):
+    capital = str.capitalize()
+    print(capital)
+
+capitalize("hola")
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 38 [3 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 38
+def contains_a(str):
+    if 'a' in str:
+        return True
+    else:
+        return False
+
+print(contains_a("Nomo"))
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 39 [3 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 39
+def it_matchs(string1, string2):
+    if string1 == string2:
+        print("Matchs!")
+    else:
+        print("Error")
+
+it_matchs("Hola", "Hola")
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 40 [3 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 40
+def even_numbers(number):
+    list = []
+    for number in range(0, number, 1):
+        if number % 2 == 0:
+            list.append(number)
+    print(list)
+
+even_numbers(53)
 
 
 """
@@ -368,7 +431,24 @@ QUESTION 40 [3 marks]
 QUESTION 41 [3 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 41
+items = {
+    "watch" : 3.23,
+    "soap" : 2.00,
+    "television" : 299.99,
+    "shoes" : 34.99
+}
+
+               
+def shopping_basket():
+    repeat = True
+
+    while repeat:
+        item = input("What item do you want to buy?: ")
+        quantity = int(input("How many of them?"))
+        answer = input("Do you want to add more? (y/n)")
+        if answer == "n":
+            repeat = False
+    print("Thanks")
 
 """
 ------------------------------------------------------------------------------------------------------------------------
