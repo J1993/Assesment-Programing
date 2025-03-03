@@ -431,80 +431,206 @@ even_numbers(53)
 QUESTION 41 [3 marks]
 """
 
-items = {
-    "watch" : 3.23,
-    "soap" : 2.00,
-    "television" : 299.99,
-    "shoes" : 34.99
-}
-
-               
 def shopping_basket():
+    basket = {}
     repeat = True
 
     while repeat:
         item = input("What item do you want to buy?: ")
         quantity = int(input("How many of them?"))
+        basket.update({item: quantity})
         answer = input("Do you want to add more? (y/n)")
         if answer == "n":
             repeat = False
-    print("Thanks")
+    print(basket)
+
+shopping_basket()
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 42 [2 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 42
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 43 [3 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 43
+class Student:
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+
+    def __str__(self):
+        return f"Student name: {self.name} and student ID: w{self.student_id}"
+
+student = Student("Jordy Lopez", "18033447")
+print(student)
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 44 [3 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 44
+class Patient:
+    def __init__(self, name, age, isvaccinated):
+        self.name = name
+        self.age = age
+        self.isvaccinated = isvaccinated
+
+    def __str__(self):
+        if self.isvaccinated:
+            return f"{self.name} is {self.age} years old and is vaccinated"
+        else:
+            return f"{self.name} is {self.age} years old is not vaccinated"
+
+
+
+patient1 = Patient("Patient 1", 25, False)
+print(patient1)
+patient1.isvaccinated = True
+print(patient1)
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 45 [2 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 45
+class OutPatient(Patient):
+    def __init__(self, discharge_date):
+        self.discharge_date = discharge_date
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 46 [5 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 46
+
+class Player:
+    name = ""
+    role = ""
+    points = 0
+    health = 100
+    inventory = []
+
+    def __init__(self, name, role, points, health, inventory):
+        self.name = name
+        self.role = role
+        self.points = points
+        self.health = health
+        self.inventory = inventory
+
+    def add_points(self, points):
+        self.points += points
+
+    def takes_damage(self, damage):
+        self.health -= damage
+
+    def add_inventory(self, item):
+        self.inventory.append(item)
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 47 [3 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 47
+attempts = 0
+password = "1234HiBen"
+
+while attempts < 3:
+    user_password = input("Enter password: ")
+
+    if user_password == password:
+        print("Succesfully Logged")
+        break
+    elif attempts == 2:
+        print("Account Locked")
+        break
+    else:
+        print("Wrong password")
+        attempts += 1
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 48 [6 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 48
+balance = 100
+pin = 1234
+user_pin = 0000
+start = True
+
+while pin != user_pin:
+    user_pin = int(input("Enter Pin: "))
+
+while start:
+    print("Select Service:")
+    display_balance = input("- Display Balance?: [y/n]")
+
+    if display_balance == "n":
+        withdraw_funds = input("- Withdraw funds?: [y/n]")
+        if withdraw_funds == "n":
+            cancel = input("- Cancel transaction?: [y/n]")
+            if cancel == "y":
+                start = False
+        else:
+            amount = int(input("Enter amount: "))
+            if amount > balance:
+                print("Insufficient funds")
+            else:
+                balance = balance - amount
+                print("Dispensing Cash")
+                print(f"Your new balance is £{balance}")
+                start = False
+    else:
+        print(f"You have £{balance} left")
+
+print("Returning Card")
 
 """
 ------------------------------------------------------------------------------------------------------------------------
 QUESTION 49 [5 marks]
 """
 
-# DELETE AND REPLACE WITH YOUR ANSWER TO QUESTION 49
+start = True
+username = ""
+password = ""
+
+while start:
+
+    option = int(input("""
+### User Management ###
+
+1 - Create a new username and password.
+2 - Update username.
+3 - Update password.
+4 - Log off.
+
+Select an option:"""))
+    if option == 1:
+        username = input("Username: ")
+        password = input("Password: ")
+        print("> User created successfully.")
+    elif option == 2:
+        if username == "":
+            print("> No username found. Add a new username and password before updating")
+        else:
+            username = input("New Username: ")
+            print("> Username updated successfully.")
+    elif option == 3:
+        if password == "":
+            print("> No password found. Add a new username and password before updating")
+        else:
+            password = input("New password: ")
+            print("> Password updated successfully.")
+    else:
+        start = False
+print("### Log Off ###")
 
 """
 ------------------------------------------------------------------------------------------------------------------------
