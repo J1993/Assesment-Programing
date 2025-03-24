@@ -54,7 +54,11 @@ class Transactions(User):
 
 app = Flask(__name__)
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+@app.route('/login',methods=['GET','POST'])
 def login():
 
     #Here we request from the login form in the html template the details to try the login.
@@ -62,16 +66,17 @@ def login():
         username = request.form['username'].lower()
         password = request.form['password']
 
-        if username in bank_users and password in bank_users[username]["password"]:
+        if username in bank_users and password == bank_users[username]["password"]:
             return render_template("dashboard.html", user=bank_users[username], username=username)
 
-    return render_template("index.html")
+    return render_template("login.html")
 
 @app.route('/register',methods=['GET', 'POST'])
 def register():
     if request.method == "POST":
         username = request.form['username'].lower()
         password = request.form['password']
+
         if username not in bank_users:
             user = User(username, password)
             bank_users[user.username] = {"password" : user.password, "accounts" : {"Current Account" : {"account-balance" : 0.0, "account-sort" : randrange(100000,999999), "account-number" : randrange(100000, 999999),}}}
