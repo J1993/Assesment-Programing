@@ -1,20 +1,8 @@
 from random import random, randrange
-
-from flask import Flask, render_template, request
+from flask import (Flask, render_template, request)
 
 #Dictionaries
-bank_users = {
-    "admin" : {
-        "password" : "admin1234",
-        "accounts" : {
-            "Current Account": {
-                "account-balance" : 1642.83,
-                "account-sort" : 112233,
-                "account-number" : 654321,
-            }
-        }
-    }
-}
+bank_users = {}
 
 user_transactions = {
     "admin" : {
@@ -45,6 +33,9 @@ class User:
             }
         }
 
+adminUser = User("admin", "1234")
+bank_users[adminUser.username] = adminUser
+
 class Transactions(User):
     def __init__(self, reference, quantity, username, password):
         super().__init__(username, password)
@@ -58,9 +49,8 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/login',methods=['GET','POST'])
+@app.route('/login', methods=['GET','POST'])
 def login():
-
     #Here we request from the login form in the html template the details to try the login.
     if request.method == "POST":
         username = request.form['username'].lower()
@@ -79,9 +69,9 @@ def register():
 
         if username not in bank_users:
             user = User(username, password)
-            bank_users[user.username] = {"password" : user.password, "accounts" : {"Current Account" : {"account-balance" : 0.0, "account-sort" : randrange(100000,999999), "account-number" : randrange(100000, 999999),}}}
-            print(bank_users[user.username])
-            return render_template("index.html")
+            bank_users[user.username] = user
+            print(user)
+            #return render_template("index.html")
 
     return render_template("register.html")
 
