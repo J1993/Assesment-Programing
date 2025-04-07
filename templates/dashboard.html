@@ -4,7 +4,24 @@
 
 {% block content %}
     <div class="container">
-        <h1>Dashboard</h1>
-    <h3>Welcome back {{ username }}</h3>
+        <h1>Welcome back {{ user.username }}</h1>
+    <br>
+        <h3>Accounts</h3>
+
+        <div class="list-group">
+            {% for account in user.accounts %}
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+                    <div class="d-flex w-100 justify-content-between">
+                        <div>
+                            <h5 class="mb-1">{{ account.account_name }}</h5>
+                            <p class="mb-1"><b>Sort Code:</b> {{ account.account_sort }} | <b>Account Number:</b> {{ account.account_number }}</p>
+                        </div>
+                        <p><b>£{{ account.account_balance }}</b></p>
+                    </div>
+                </a>
+                <br>
+            {%endfor%}
+
+        </div>
     </div>
 {% endblock %}
