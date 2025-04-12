@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Unibank - Dashboard{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Account Summary</h1>
+        <h3>Current Balance: {{ account_selected.account_balance }}</h3>
+        <br>
+        <button type="button" class="btn btn-info">Move Money</button>
+        <br>
+        <h4>Transactions</h4>
+        <ul class="list-group">
+            {% if account_selected.transactions|length > 0 %}
+                {% for transaction in account_selected.transactions %}
+                    <li class="list-group-item flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <p><b>{{ transaction.reference }}</b></p>
+                            <p>£{{ transaction.price }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+
+{% endblock %}

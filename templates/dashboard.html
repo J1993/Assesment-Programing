@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard {{ user.username }}{% endblock %}
+{% block title %}Unibank - Dashboard{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -10,10 +10,10 @@
 
         <div class="list-group">
             {% for account in user.accounts %}
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+                <a href="{{ url_for("account", account_index=loop.index0) }}" class="list-group-item list-group-item-action flex-column align-items-start ">
                     <div class="d-flex w-100 justify-content-between">
                         <div>
-                            <h5 class="mb-1">{{ account.account_name }}</h5>
+                            <h5 class="mb-1">{{ loop.index0 + 1 }} - {{ account.account_name }}</h5>
                             <p class="mb-1"><b>Sort Code:</b> {{ account.account_sort }} | <b>Account Number:</b> {{ account.account_number }}</p>
                         </div>
                         <p><b>£{{ account.account_balance }}</b></p>
@@ -21,7 +21,6 @@
                 </a>
                 <br>
             {%endfor%}
-
         </div>
     </div>
 {% endblock %}
